@@ -31,6 +31,26 @@ public class Main extends Application implements EventHandler<ActionEvent> {
         button.setOnAction(this);
         // this stand for event is gona handle in this class
 
+        /*
+         * alternative way to set eventlistener on button
+         * we do not nedd to impliment any interface or check every time which buttonn getting 
+         * clicked 
+         *  
+         * button.setOnAction(new EventHandler<ActionEvent>(){
+         *      public void handle(ActionEvent event){
+         *          System.out.println("he cliked")
+         *      }
+         * });
+         * 
+         * now if we are using java 8 we can go through lambda expression as follow
+         * 
+         * button.setOnAction(e -> {    
+         *      System.out.println("clicked");
+         * }); 
+         * 
+         * this above code makes code clean and understandable
+        */
+
         // to display any thing on window we need create layout
         // StackPane creates a layout and we need to add children i.e element on layout
 
@@ -47,6 +67,7 @@ public class Main extends Application implements EventHandler<ActionEvent> {
     }
 
     // to add ebvent handler when user click button
+    // i.e when buttonn is clicke handle() get called
     public void handle(ActionEvent event) {
         if (event.getSource() == button) {
             System.out.println("touched button");
