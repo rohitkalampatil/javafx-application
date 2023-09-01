@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -24,6 +26,15 @@ public class Main extends Application{
 
         //set a default value
         choiceBox.setValue("Apple");
+        
+        // Adding Listener to dropdown selection changes
+        choiceBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                System.out.println(newValue);
+            }
+        });
+
 
         //button select
         Button button =  new Button("Select");
